@@ -1,0 +1,93 @@
+//Complete the class TripPlan which describes the cities that are visited by a tour conducted
+//by Java Now Tours. Keep an arraylist of cities (just the string name). Have methods to add a 
+//city, remove a city, to return the names of the cities in a String, and to reverse the order 
+//of the elements in the array list.
+
+//Notice that the reverse method is void.
+
+// Need help starting this question? In the lesson titled 
+// "Starting points: Problem Set Questions", go to the
+// problem titled "Problem Set 6 - Question 2" for some tips on 
+// how to begin.
+
+import java.util.ArrayList;
+
+/**
+ * A TripPlan represents a trip and holds a collection of city names.
+ */
+public class TripPlan
+{
+    // TODO: add instance variable here
+    public String city;
+    ArrayList <String> cityNames;
+    /**
+     * Constructs an empty trip.
+     */
+    public TripPlan()
+    {
+        // TODO: Initialize the instance variable
+        cityNames=new ArrayList <String>();
+    }
+
+    /**
+     * Add a city to the list.
+     * @param cityName the city to add
+     */
+    public void addCity(String cityName)
+    {
+        // TODO: Write code to add a city to the array list instance variable
+        cityNames.add(cityName);
+        
+    }
+
+    /**
+     * Returns a string describing the object.
+     * @return a string in the format "TripPlan[cityName1,cityName2,...]"
+     */
+    public String toString()
+    {
+         String word="";
+        int i = 0;
+        for(String city : cityNames){
+         word = word + city;
+            if(i>=0 && i<cityNames.size()-1){
+                word = word + ",";
+            }
+            i++;
+        }
+        String text= "TripPlan[";
+        String textFinal = "]";
+        String test = text+word+textFinal;
+            
+        return test;
+    }
+
+    /**
+     * Removes a city form the this trip
+     * @param cityName city to remove
+     */
+    public void removeCity(String cityName)
+    {
+        // TODO: Write code to remove a city to the array list instance variable
+        for (int i = 0; i < cityNames.size(); i++) {
+           
+            if(cityNames.get(i).equals(cityName)){
+             cityNames.remove(i);
+               
+            }
+            }
+    }
+
+    /**
+     * Reverses the elements in the itinerary.
+     */
+    public void reverse()
+    {
+       int index = 0;
+		  for (int i = 0; i < cityNames.size(); i++) 
+		  {
+			  cityNames.add(index, cityNames.remove(cityNames.size() - 1));
+			  index++;
+		  }
+        }
+    }
